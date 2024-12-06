@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <main>
+        <section class="playlist">
+            <h2>Your Playlist</h2>
+            <ul>
+                <!-- Playlist Items -->
+                <li>
+                    <div class="song-details">
+                        <span class="song-name"> Kurchini madathapetti</span><br>
+                        <span class="artist-name">Thaman s</span>
+                    </div>
+                    <button class="play-btn" onclick="playSpotify('https://open.spotify.com/embed/track/7IWcVmNCt0V1KHoYQP9ZoR?utm_source=generator', 'Kurchini Madathapetti', 'Thaman S')">Play</button>
+                </li>
+
+                <li>
+                    <div class="song-details">
+                        <span class="song-name">Despacito</span><br>
+                        <span class="artist-name">Luis Fonsi</span>
+                    </div>
+                    <button class="play-btn" onclick="playSpotify('https://open.spotify.com/embed/track/6habFhsOp2NvshLv26DqMb', 'Despacito', 'Luis Fonsi')">Play</button>
+                </li>
+                <li>
+                    <div class="song-details">
+                        <span class="song-name">Fear song</span><br>
+                        <span class="artist-name">Anirudh</span>
+                    </div>
+                    <button class="play-btn" onclick="playSpotify('https://open.spotify.com/embed/track/6b2WJDzGt5X8dYfpkWtvXW?utm_source=generator', 'Fear song<', 'Anirudh')">Play</button>
+                </li>
+                  <li>
+                    <div class="song-details">
+                        <span class="song-name">Pushpa Pushpa</span><br>
+                        <span class="artist-name">Devi sri prasad</span>
+                    </div>
+                    <button class="play-btn" onclick="playSpotify('https://open.spotify.com/embed/track/53wUQ0sXraCKkIMguoGdJr?utm_source=generator', 'Pushpa Pushpa', 'Devi sri prasad')">Play</button>
+                </li>
+                  <li>
+                    <div class="song-details">
+                        <span class="song-name">Neeve</span><br>
+                        <span class="artist-name">G V prakash</span>
+                    </div>
+                    <button class="play-btn" onclick="playSpotify('https://open.spotify.com/embed/track/4QMZ6gwFTLk9qOhaQsGIxf?utm_source=generator', 'Neeve', 'G V prakash')">Play</button>
+                </li>
+                  <li>
+                    <div class="song-details">
+                        <span class="song-name">Mayavi</span><br>
+                        <span class="artist-name">Sonu nigam</span>
+                    </div>
+                    <button class="play-btn" onclick="playSpotify('https://open.spotify.com/embed/track/5FpUYrZWcFcuQMX4lDQqrf?utm_source=generator', 'Mayavi', 'Sonu nigam')">Play</button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="audio-player">
+            <h3 id="current-song">Now Playing: </h3>
+            <!-- Embedded Spotify Player -->
+            <iframe id="spotify-iframe" src="" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </section>
+    </main>
+
+    <script>
+        // Function to play the selected song in the Spotify iframe
+        function playSpotify(spotifyUrl, songName, artistName) {
+            const spotifyIframe = document.getElementById("spotify-iframe");
+            const currentSong = document.getElementById("current-song");
+
+            // Update the Spotify iframe source and the song details
+            spotifyIframe.src = spotifyUrl;
+            currentSong.innerText = `Now Playing: ${songName} by ${artistName}`;
+        }
+    </script>
+</body>
+</html>
+{% endblock %}

@@ -12,11 +12,15 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-
 @app.route('/')
 def home():
+    return render_template('home.html')
+
+
+@app.route('/songs')
+def songs():
     songs = Song.query.all()
-    return render_template('index.html', content=songs)
+    return render_template('songs.html', content=songs)
 
 
 @app.route('/search', methods=['GET'])
@@ -37,6 +41,11 @@ def search_song():
 @app.route('/topsongs')
 def topsongs():
     return render_template('topsongs.html')
+
+
+@app.route('/playlist')
+def playlist():
+    return render_template('playlist.html')
 
 
 @app.route('/submit', methods=['POST'])
